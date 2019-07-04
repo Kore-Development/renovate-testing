@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "express": "^4.16.4",
+    "compression": "^1.7.4"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "main": "server.js"
+}
