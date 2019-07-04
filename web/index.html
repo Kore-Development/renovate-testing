@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>salad242 - Web Editor</title>
+
+  <link rel="shortcut icon" href="https://salad242.gq/favicon.ico">
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/gh/lucko/LuckPermsWeb@master/assets/common/style.css" rel="stylesheet" type="text/css">
+  <link href="style.css" rel="stylesheet" type="text/css">
+  <noscript id="css-defer">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" type="text/css">
+  </noscript>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/awesomplete/1.1.2/awesomplete.min.js" integrity="sha256-xA+USAVmEnBnz1FiLRSG8xglJflQVHmQvbx5+u4bslk="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha256-Daf8GuI2eLKHJlOWLRR/zRy9Clqcj4TUSumbxYH9kGI="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js" integrity="sha256-0prQxFtdWQNa3vW5JDMbvbBp6ehKzf9UIWqFGZIWPPE="
+    crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/i18n/datepicker.en.min.js" integrity="sha256-RbE9ux8UbaKexk/+aT9XkZ8tcUWg3yw/3XE/S8iW7eI="
+      crossorigin="anonymous" defer></script>
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+<div id="bar" style="display: none;">
+  <ul class="flex-center">
+    <li>
+      <a href="#"><img alt="salad242 Logo" class="tiny-logo" width="40" height="40" src="https://salad242.gq/favicon.ico"></a>
+      <h3>Web Permissions Editor</h3>
+    </li>
+    <li id="identifier"></li>
+    <li>
+      <i id="undo-button" class="unclickable material-icons undo" title="Undo (Ctrl + Z)">undo</i>
+      <i id="redo-button" class="unclickable material-icons redo" title="Redo (Ctrl + Y)">redo</i>
+      <i id="save-button" class="clickable material-icons save" title="Save (Ctrl + S)">save</i>
+      <i style="display: none" id="help-button" class="clickable material-icons help" title="Help (Ctrl + H)">help</i>
+    </li>
+  </ul>
+  <div id="tab" style="display: none"></div>
+</div>
+
+<div class="content">
+  <div id="popup"></div>
+
+  <div id="page">
+    <div id="panel">
+      <img alt="salad242 Logo" class="logo" width="180" height="180" src="https://salad242.gq/favicon.ico">
+
+      <h1>salad242</h1>
+      <h2>Web Permissions Editor</h2>
+
+      <div id="prompt">
+        <h3>To start a new editor session, please use</h3>
+        <h4>
+          <span class="cmd">/lp editor</span>
+          <br>
+          <span class="cmd">/lp user &lt;user&gt; editor</span>
+          <br>
+          <span class="cmd">/lp group &lt;group&gt; editor</span>
+        </h4>
+      </div>
+    </div>
+
+    <div id="table-content" class="wrapper" style="display: none;">
+      <div class="table-input-bar">
+        <div class="newentry">
+          <div id="inpform">
+            <input type="text" class="autocomp" name="permission" placeholder="Permission" title="Filter through known permissions or add a new one.">
+            <input type="text" name="expiry" class="datepicker-here" placeholder="Expiry" data-language="en" data-timepicker="true" title="When will the permission expire? Leave blank for no expiry.">
+            <input type="text" name="server" placeholder="Server" title="Restrict this permission to a certain server. Leave blank for global.">
+            <input type="text" name="world" placeholder="World" title="Restrict this permission to a certain world. Leave blank for global.">
+            <input type="text" name="contexts" placeholder="Contexts" title="Add custom contexts.">
+            <input type="checkbox" name="value" id="inpvalue" checked>
+            <label for="inpvalue" title="Click to toggle the true/false value."></label>
+            <i class="clickable material-icons add" title="Add permission.">add_box</i>
+          </div>
+        </div>
+      </div>
+
+      <div id="table-section"></div>
+    </div>
+  </div>
+</div>
+
+<div id="help-section" style="display: none;">
+  <div class="help-content">
+  </div>
+</div>
+
+
+</body>
+</html>
